@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PM2.5全台資訊</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='./css/pm25.css')}}">
+</head>
+
+<body>
+    <div id="container">
+        <h1>PM2.5全台資訊</h1>
+        <p>{{date}}</p>
+        <table border="1">
+            <thead>
+                <tr>
+                    {% for col in columns %}
+                    <td>{{col}}</td>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for value in values %}
+                <tr>
+                    {% for td in value %}
+                    <th>{{td}}</th>
+                    {{% endfor %}}
+                </tr>
+                {{% endfor %}}
+            </tbody>
+        </table>
+        <p>
+            <a href="/">首頁</a>
+        </p>
+
+    </div>
+
+</body>
+
+</html>
